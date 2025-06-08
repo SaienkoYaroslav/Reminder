@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Reminder</string>
     <string name="reminder">Reminder</string>
+    <string name="go_to_adding_reminder_screen">go to adding reminder screen</string>
+    <string name="add_reminder">Add reminder</string>
+    <string name="edit_reminder">Edit reminder</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="save">Save</string>
+    <string name="active">Active</string>
+    <string name="completed">Completed</string>
+    <string name="no_active">No active reminders</string>
+    <string name="no_completed">No completed reminders</string>
+    <string name="reminder_alarm_msg">It’s time!</string>
+    <string name="channel_reminder">Reminders</string>
+    <string name="complete">Complete</string>
+    <string name="snooze_10m">Snooze 10 min</string>
 </resources>

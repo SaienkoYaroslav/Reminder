@@ -18,6 +18,7 @@ import com.behappy.reminder.domain.use_cases.UpdateReminderUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
@@ -95,4 +96,10 @@ object UseCaseModule {
         observe = ObserveRemindersUseCase(repo),
         rescheduleAll = RescheduleAllUseCase(repo, scheduler),
     )
+}
+
+@EntryPoint
+@InstallIn(SingletonComponent::class)
+interface ReminderEP {
+    fun useCases(): ReminderUseCases
 }

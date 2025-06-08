@@ -10,11 +10,13 @@ sealed interface RoutScreen
 @Serializable
 data object RoutMainScreen : RoutScreen
 
+@Serializable
+data class RoutAddEditScreen(val id: Long? = null) : RoutScreen
 
 fun NavBackStackEntry?.routeClass(): KClass<*>? {
     return this?.destination?.route
         ?.split("?")
         ?.first()
-        ?.let { Class.forName(it)}
+        ?.let { Class.forName(it) }
         ?.kotlin
 }

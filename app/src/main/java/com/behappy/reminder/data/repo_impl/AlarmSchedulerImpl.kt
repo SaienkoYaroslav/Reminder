@@ -8,6 +8,7 @@ import com.behappy.reminder.data.broadcast_receiver.AlarmReceiver
 import com.behappy.reminder.data.mapping.toEpochMilli
 import com.behappy.reminder.domain.business_model.Reminder
 import com.behappy.reminder.domain.contracts.AlarmScheduler
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ import javax.inject.Inject
  * ---------------------------------------------------- */
 
 class AlarmSchedulerImpl @Inject constructor(
-    private val context: Context,
+   @ApplicationContext private val context: Context,
 ) : AlarmScheduler {
 
     private val alarmManager: AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager

@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".AppReminder"
@@ -27,6 +30,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Alarm → нотифікація -->
+        <receiver
+            android:name=".data.broadcast_receiver.AlarmReceiver"
+            android:exported="false"
+            android:directBootAware="true" />
+
+        <!-- Дія Complete -->
+        <receiver
+            android:name=".data.broadcast_receiver.CompleteActionReceiver"
+            android:exported="false" />
+
+        <!-- Дія Snooze -->
+        <receiver
+            android:name=".data.broadcast_receiver.SnoozeActionReceiver"
+            android:exported="false" />
+
+        <!-- Перезапуск після reboot -->
+        <receiver
+            android:name=".data.broadcast_receiver.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
